@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
-import { counter } from './counter.model';
+import { Counter } from './counter.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  counters: counter[] = localStorage.getItem('datakey')
+  counters: Counter[] = localStorage.getItem('datakey')
     ? JSON.parse(localStorage.getItem('datakey') || '[]')
     : [];
   // property to contain counters
   constructor() {}
 
-  getcounter() {
+  getCounter() {
     return this.counters;
   }
 
-  addcounter(counter: counter) {
+  addCounter(counter: Counter) {
     this.counters.push(counter);
     localStorage.setItem('datakey', JSON.stringify(this.counters));
   }
-  deletecounter(ind: number) {
+  deleteCounter(ind: number) {
     this.counters.splice(ind, 1);
     localStorage.setItem('datakey', JSON.stringify(this.counters));
   }

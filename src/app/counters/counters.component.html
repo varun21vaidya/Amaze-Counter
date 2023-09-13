@@ -13,7 +13,7 @@
           <!-- ngModel has various form validations such as required , minlength and
                         its name takes input value which will be used in component
                         we will also asign an Id to it to take values of ngModel to handel erros with ngIf -->
-          <input formControlName="text" required minlength="2" name="text" class="input" type="text"
+          <input formControlName="text" required name="text" class="input" type="text"
             placeholder="Lets Add Your Counter ...">
         </p>
         <p class="control">
@@ -27,9 +27,6 @@
       <div *ngIf="form?.touched && form?.invalid">
         <p class=" help is-danger" *ngIf="form.controls['text'].errors?.['required']">Please Enter Counter Name to Add
         </p>
-        <p class="help is-danger" *ngIf="form.controls['text'].errors?.['minlength']">counter Counter name must be
-          atleast
-          2 characters</p>
       </div>
     </form>
   </div>
