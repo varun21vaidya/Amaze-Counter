@@ -1,20 +1,19 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '../shared/data.service';
-import { counter } from '../shared/counter.model';
+import { Counter } from '../shared/counter.model';
 
 @Component({
   selector: 'app-counter-item',
   templateUrl: './counter-item.component.html',
   styleUrls: ['./counter-item.component.scss'],
 })
-export class counterItemComponent implements OnInit {
-  @Input() counter!: counter;
+export class CounterItemComponent implements OnInit {
+  @Input() counter!: Counter;
   // we have to implement the functionality to complete the task
   // emit an event each time item is clicked
   // so that parent component can event bind to listen those events
   // event type is void bcz we arent going to send any data
   // its just a signal that counter was clicked
-
 
   @Output() deleteEventCall: EventEmitter<void> = new EventEmitter();
   @Output() incrementEventCall: EventEmitter<void> = new EventEmitter();

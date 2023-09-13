@@ -1,3 +1,3 @@
-export class counter {
+export class Counter {
   constructor(public text: string, public count: number) {}
 }

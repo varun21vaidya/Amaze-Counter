@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../shared/data.service';
-import { counter } from '../shared/counter.model';
+import { Counter } from '../shared/counter.model';
 
 @Component({
   selector: 'app-counters',
   templateUrl: './counters.component.html',
   styleUrls: ['./counters.component.scss'],
 })
-export class countersComponent implements OnInit {
-  counters!: counter[];
+export class CountersComponent implements OnInit {
+  counters!: Counter[];
   inputs!: string;
   countValue!: number;
   index!: number;
@@ -19,11 +19,11 @@ export class countersComponent implements OnInit {
   constructor(private dataservice: DataService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.counters = this.dataservice.getcounter();
+    this.counters = this.dataservice.getCounter();
 
     this.form = this.fb.group({
       text: ['', Validators.required],
-      count: [0, Validators.required],
+      count: [0],
     });
     if (this.formData) {
       this.form.setValue(this.formData);
@@ -33,29 +33,30 @@ export class countersComponent implements OnInit {
   // deleteEventCall was defined in counter-item component which was output event emitter which is called by onDeleteClick when an item is clicked
   // so this deleteEventCall will initiate deleteTask function in counter html
   // which will called in counter component which will delete following task
-  deleteTask(counter: counter) {
+  deleteTask(counter: Counter) {
     const index = this.counters.indexOf(counter);
-    this.dataservice.deletecounter(index);
+    this.dataservice.deleteCounter(index);
   }
-  incrementCount(counter: counter) {
+  incrementCount(counter: Counter) {
     const index = this.counters.indexOf(counter);
     this.dataservice.increaseCount(index);
   }
-  decrementCount(counter: counter) {
+  decrementCount(counter: Counter) {
     const index = this.counters.indexOf(counter);
     this.dataservice.decreaseCount(index);
   }
 
   // to add new task
   onFormSubmit(form: FormGroup) {
-    if (form.invalid) {
-      console.log(form.controls['text'].errors?.['required']);
-      return;
+    console.log(this.form);
+    if (this.form.invalid) {
+      console.log(this.form.controls['text'].errors?.['required']);
+      return this.form.controls['text'].errors?.['required'];
     }
-    this.inputs = form.value.text;
+    this.inputs = this.form.value.text;
     this.countValue = 0;
-    this.dataservice.addcounter(new counter(this.inputs, this.countValue));
+    this.dataservice.addCounter(new Counter(this.inputs, this.countValue));
     form.reset();
-    console.log(form);
+    console.log(this.form);
   }
 }
