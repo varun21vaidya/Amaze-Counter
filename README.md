@@ -1,5 +1,7 @@
 # Amaze Counter - An amazing multiple counter app with clean UI
 
+Live Site: https://amaze-counter.vercel.app/
+
 ![demo](https://github.com/varun21vaidya/Amaze-Counter/assets/65745841/92d482ca-5c35-43e5-9490-6c8a13cceb39)
 
 
