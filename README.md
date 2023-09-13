@@ -1,4 +1,7 @@
-# counterApp
+# Amaze Counter - An amazing multiple counter app with clean UI
+
+![demo](https://github.com/varun21vaidya/Amaze-Counter/assets/65745841/92d482ca-5c35-43e5-9490-6c8a13cceb39)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
