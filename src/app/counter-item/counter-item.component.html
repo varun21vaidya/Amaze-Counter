@@ -1,0 +1,36 @@
+<!-- ItemEventCalled was defined in counter-item component which was output event emitter which is called by onItemClick when an item is clicked -->
+<div class="counter-item">
+  <div class="counter-task">
+    {{counter.text}}
+    <div class="counter-counter">
+      <div class="counter-control-button" (click)="onDecrementClick()">
+        <span class="material-icons">
+          remove
+        </span>
+      </div>
+      <span class="count-value">{{counter.count}}</span>
+      <div class="counter-control-button" (click)="onIncrementClick()">
+        <span class="material-icons">
+          add
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- div for controls like edit and delete -->
+
+  <div class="counter-control-box" (click)="$event.stopPropagation()">
+
+
+    <!-- deleteEventCall was defined in counter-item component which was output event emitter which is called by onDeleteClick when an item is clicked
+        so this deleteEventCall will initiate deleteTask function in counter html
+        which will called in counter component which will delete following task -->
+
+    <div class="counter-control-button is-danger" (click)="$event.stopPropagation()">
+      <div class="counter-control-button" (click)="onDeleteClick()">
+        <span class="material-icons">
+          delete
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

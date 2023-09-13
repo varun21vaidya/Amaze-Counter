@@ -1,0 +1,112 @@
+
+.counter-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 35px 15px;
+    border-bottom: 1px solid rgba(93, 93, 93, 0.215);
+    cursor: pointer;
+
+
+    .check-box{
+        display: flex;
+        flex-shrink: 0;
+        margin-top: 4px;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: lightblue;
+        height: 25px;
+        width: 25px;
+        margin-right: 10px;
+
+        .material-icons{
+            opacity: 0;
+            font-size: 20px;
+            margin: auto;
+        }
+
+    }
+
+    .counter-task{
+      font-size: 20px;
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 80%;
+    }
+
+    .counter-counter{
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .counter-control-button{
+      display: flex;
+    }
+    .count-value{
+      margin: 0 10px;
+    }
+}
+
+// for delete buttons
+
+.counter-item .counter-control-box {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 5px;
+
+
+    .counter-control-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px 5px 2px 5px;
+        border-radius: 5px;
+        // .material-icons{
+        //     font-size: 20px;
+        // }
+    }
+
+    // by default it will be hidden but only show on hovering on task
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: visibility 0.2s, trasform 0.2s, opacity 0.2s;
+}
+
+.counter-item .counter-control-box .counter-control-button:hover{
+    background-color: #eee;
+}
+
+.counter-item .counter-control-box .counter-control-button:active{
+    background-color: #d9dada;
+}
+
+// when clicked on delete it will show red color
+.counter-item .counter-control-box .counter-control-button.is-danger:hover {
+    .material-icons{
+        color: red;
+    }
+}
+
+.counter-item:hover .counter-control-box{
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0);
+}
+
+@media only screen  and (min-width: 320px) and (max-width: 480px){
+    .counter-item .counter-control-box{
+        visibility: visible;
+        opacity: 1;
+    }
+
+}
