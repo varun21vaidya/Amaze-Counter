@@ -1,22 +1,23 @@
 # Amaze Counter - An amazing multiple counter app with clean UI
 
-- [Demo](#demo)
+- [Live Site](#live-site)
 - [Overview](#overview)
-  - [Built With](#built-with)
+- [Built With](#built-with)
 - [Features](#features)
 - [How to use](#how-to-use)
 - [Contact](#contact)
 
 ---
 
-## Live Site: https://amaze-counter.vercel.app/
+## Live Site:
+ ### https://amaze-counter.vercel.app/
 
 ## Overview:
 
 The Website is a Single Page Responsive Application made for organizing and using multiple counters for various applications .
 
 
-### Built With:
+## Built With:
 
 - Frontend: Angular 14
   
